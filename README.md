@@ -8,7 +8,7 @@ An interactive web application built with **Python** and **Flask** to help organ
 - **Sidebar Navigation:** Categorized links for different study units.
 - **LaTeX Rendering:** Uses **MathJax** to display complex formulas (e.g., \( \sum \), \( \sqrt{x} \), \( \lor \)) perfectly.
 - **Toggle Answers:** "Show Answer" buttons for active recall testing.
-- **Mobile-Friendly UI:** A clean, dark-themed responsive design.
+- **Modern Dark UI:** A clean, focused design inspired by professional review tools.
 
 ---
 
@@ -22,7 +22,7 @@ An interactive web application built with **Python** and **Flask** to help organ
 
 ## 📦 Setup & Installation
 
-1. **Install Dependencies**:
-   Ensure you have Poetry installed, then run:
+1. **Install and Run (Single Command)**:
+   Ensure you have Poetry installed, then run this in your terminal to install dependencies and start the server immediately:
    ```bash
-   poetry install
+   poetry install && poetry run python app.py
