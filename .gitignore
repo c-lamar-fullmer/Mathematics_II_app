@@ -1,0 +1,22 @@
+# Python bytecode (compiled files)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments (Poetry and Virtual Envs)
+.venv/
+venv/
+ENV/
+.python-version
+
+# VS Code specific
+.vscode/
+
+# Flask/Development
+.env
+instance/
+.pytest_cache/
+
+# OS specific
+.DS_Store
+Thumbs.db
