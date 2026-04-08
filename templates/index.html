@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Practice Problems</h2>
+    {% for q in questions %}
+    <div class="question-card">
+        <span class="badge">{{ q.difficulty }}</span>
+        <h3>Question {{ q.id }}</h3>
+        <p>{{ q.question }}</p>
+        
+        <details>
+            <summary>Show Answer</summary>
+            <div class="answer-box">
+                {{ q.answer }}
+            </div>
+        </details>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

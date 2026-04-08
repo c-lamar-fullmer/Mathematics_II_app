@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics II Review</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Mathematics II</h2>
+        <a href="#">Unit 1: Propositional Logic</a>
+        <a href="#">Unit 2: Set Theory</a>
+        <a href="#">Unit 3: Number Systems</a>
+        <a href="#">Unit 4: Linear Algebra</a>
+    </div>
+
+    <div class="main-content">
+        <nav class="top-menu">
+            <span>My Dashboard / Practice</span>
+        </nav>
+        
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

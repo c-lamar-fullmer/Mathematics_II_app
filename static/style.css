@@ -1,0 +1,89 @@
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --accent-color: #4da6ff;
+    --sidebar-width: 250px;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: #181818;
+    height: 100vh;
+    position: fixed;
+    border-right: 1px solid #333;
+    padding: 20px;
+}
+
+.sidebar h2 { color: var(--accent-color); font-size: 1.2rem; }
+
+.sidebar a {
+    display: block;
+    color: #aaa;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.sidebar a:hover { color: white; }
+
+/* Main Content Area */
+.main-content {
+    margin-left: calc(var(--sidebar-width) + 40px);
+    flex-grow: 1;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.top-menu {
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+/* Question Cards */
+.question-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+}
+
+.badge {
+    background: #333;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+/* Toggle Styling */
+details {
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+summary {
+    color: var(--accent-color);
+    font-weight: bold;
+    outline: none;
+}
+
+.answer-box {
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #252525;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 4px;
+}
