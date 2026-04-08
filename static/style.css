@@ -3,72 +3,105 @@
     --card-bg: #1e1e1e;
     --text-color: #e0e0e0;
     --accent-color: #4da6ff;
-    --sidebar-width: 250px;
+    --sidebar-width: 280px;
+}
+
+/* Global Layout */
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: var(--bg-color);
+    overflow: hidden; /* Prevents the whole body from scrolling double */
 }
 
 body {
     font-family: 'Inter', -apple-system, sans-serif;
-    background-color: var(--bg-color);
     color: var(--text-color);
-    margin: 0;
     display: flex;
 }
 
-/* Sidebar Styling */
+/* Sidebar - Fixed and Scrollable */
 .sidebar {
     width: var(--sidebar-width);
     background-color: #181818;
     height: 100vh;
     position: fixed;
     border-right: 1px solid #333;
-    padding: 20px;
+    padding: 25px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Scrollbar appears here if units overflow */
 }
 
-.sidebar h2 { color: var(--accent-color); font-size: 1.2rem; }
+.sidebar h2 { 
+    color: var(--accent-color); 
+    font-size: 1.2rem; 
+    margin-bottom: 20px;
+}
 
 .sidebar a {
     display: block;
     color: #aaa;
     text-decoration: none;
-    padding: 10px 0;
+    padding: 12px 0;
     font-size: 0.9rem;
+    line-height: 1.4;
     transition: 0.3s;
+    border-bottom: 1px solid #252525;
 }
 
-.sidebar a:hover { color: white; }
+.sidebar a:hover { 
+    color: white; 
+    padding-left: 5px; /* Subtle hover effect */
+}
 
-/* Main Content Area */
+/* Main Content Area - Scrollable */
 .main-content {
-    margin-left: calc(var(--sidebar-width) + 40px);
+    margin-left: var(--sidebar-width);
     flex-grow: 1;
-    padding: 20px;
-    max-width: 800px;
+    height: 100vh;
+    padding: 40px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Scrollbar appears here for questions */
 }
 
 .top-menu {
     border-bottom: 1px solid #333;
     padding-bottom: 20px;
     margin-bottom: 30px;
+    font-size: 0.85rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* Question Cards */
 .question-card {
     background-color: var(--card-bg);
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
     border: 1px solid #333;
+    max-width: 800px;
 }
 
 .badge {
     background: #333;
-    padding: 4px 8px;
+    padding: 4px 10px;
     border-radius: 4px;
     font-size: 0.7rem;
     text-transform: uppercase;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    display: inline-block;
 }
 
-/* Toggle Styling */
+.question-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Animated Caret (Arrow) Toggle */
 details {
     margin-top: 15px;
     cursor: pointer;
@@ -78,12 +111,51 @@ summary {
     color: var(--accent-color);
     font-weight: bold;
     outline: none;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::before {
+    content: '▶';
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 0.7rem;
+    transition: transform 0.2s ease;
+}
+
+details[open] summary::before {
+    transform: rotate(90deg);
 }
 
 .answer-box {
-    margin-top: 10px;
-    padding: 15px;
+    margin-top: 15px;
+    padding: 20px;
     background-color: #252525;
     border-left: 4px solid var(--accent-color);
     border-radius: 4px;
+    line-height: 1.6;
+}
+
+/* Custom Scrollbar for Dark Mode */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
 }
