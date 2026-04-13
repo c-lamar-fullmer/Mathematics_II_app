@@ -21,5 +21,12 @@ questions_data = [
         "difficulty": "Hard",
         "question": "Explain the Königsberg Bridge Problem.",
         "answer": "Euler proved it impossible to cross all seven bridges exactly once because more than two landmasses had an odd number of bridges."
+    },
+    {
+        "id": 4,
+        "unit": 8,
+        "difficulty": "Easy",
+        "question": "Why do trees make great networking professionals.",
+        "answer": "Because they're always branching out!"
     }
 ]
