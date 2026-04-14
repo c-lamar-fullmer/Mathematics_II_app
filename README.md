@@ -26,3 +26,6 @@ An interactive web application built with **Python** and **Flask** to help organ
    Ensure you have Poetry installed, then run this in your terminal to install dependencies and start the server immediately:
    ```bash
    poetry install && poetry run python app.py
+
+
+To access LaMar's virtual environment: source ~/.venv/env_b/bin/activate

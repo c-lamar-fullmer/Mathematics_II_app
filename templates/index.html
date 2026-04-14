@@ -1,58 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathematics II Practice</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <div class="sidebar">
-        <h2>Mathematics II</h2>
-        <a href="/">Show All Questions</a>
-        
-        <a href="/unit/1">Unit 1:<br>Introduction to Matrices</a>
-        <a href="/unit/2">Unit 2:<br>Inverting Matrices</a>
-        <a href="/unit/3">Unit 3:<br>Systems of Linear Equations</a>
-        <a href="/unit/4">Unit 4:<br>Introduction to Graphs</a>
-        <a href="/unit/5">Unit 5:<br>Shortest Path Problem</a>
-        <a href="/unit/6">Unit 6:<br>The Königsberg Bridge Problem</a>
-        <a href="/unit/7">Unit 7:<br>Hamiltonian Paths</a>
-        <a href="/unit/8">Unit 8:<br>Trees</a>
+{% block content %}
+    <div class="top-menu">
+        {% if current_unit %}
+            Questions for Unit {{ current_unit }}
+        {% else %}
+            All Practice Questions
+        {% endif %}
     </div>
 
-    <div class="main-content">
-        <div class="top-menu">
-            {% if current_unit %}
-                Questions for Unit {{ current_unit }}
-            {% else %}
-                All Practice Questions
-            {% endif %}
-        </div>
-
-        <div class="questions-container">
-            {% for question in questions %}
-            <div class="question-card">
-                <span class="badge">{{ question.difficulty }}</span>
-                <div class="question-text">
-                    {{ question.question }}
-                </div>
-                
-                <details>
-                    <summary>Show Answer</summary>
-                    <div class="answer-box">
-                        {{ question.answer }}
-                    </div>
-                </details>
+    <div class="questions-container">
+        {% for question in questions %}
+        <div class="question-card">
+            <span class="badge">{{ question.difficulty }}</span>
+            <div class="question-text">
+                {{ question.question }}
             </div>
-            {% else %}
-            <p>No questions found for this unit yet. Time to add some to <code>questions.py</code>!</p>
-            {% endfor %}
+            
+            <details>
+                <summary>Show Answer</summary>
+                <div class="answer-box">
+                    {{ question.answer }}
+                </div>
+            </details>
         </div>
+        {% else %}
+        <p>No questions found for this unit yet.</p>
+        {% endfor %}
     </div>
-
-</body>
-</html>
+{% endblock %}
