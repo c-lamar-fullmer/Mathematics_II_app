@@ -46,7 +46,6 @@ body {
     font-size: 0.9rem;
     line-height: 1.4;
     transition: 0.3s;
-    border-bottom: 1px solid #252525;
 }
 
 .sidebar a:hover { 
@@ -68,8 +67,18 @@ body {
     border-bottom: 1px solid #333;
     padding-bottom: 20px;
     margin-bottom: 30px;
-    font-size: 0.85rem;
+    font-size: 1.25rem;
     color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-header {
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    color: #f9db45;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
