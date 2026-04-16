@@ -125,7 +125,11 @@ body {
 .sidebar h2 { color: var(--accent-color); font-size: 1.2rem; margin-bottom: 20px; }
 .sidebar a { display: block; color: #aaa; text-decoration: none; padding: 12px 0; font-size: 0.9rem; line-height: 1.4; transition: 0.3s; }
 .sidebar a:hover { color: white; padding-left: 5px; }
-.sidebar a.active-link { color: var(--accent-color2); border-left: 3px solid var(--accent-color2); padding-left: 10px; }
+.sidebar a.active-link { 
+    color: var(--accent-color2); 
+    border-left: 3px solid var(--accent-color2); 
+    padding-left: 10px; 
+}
 
 /* --- CONTENT STYLES --- */
 .top-menu {
@@ -175,12 +179,39 @@ body {
     display: inline-block;
 }
 
-.question-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 10px; text-align: left; }
+.question-text { 
+    font-size: 1.1rem; 
+    line-height: 1.6; 
+    margin-bottom: 10px; 
+    text-align: left; 
+}
 
-/* Bullets */
-.options-list { list-style: none; padding-left: 5px; margin-top: 15px; }
-.options-list li { position: relative; padding-left: 20px; margin-bottom: 8px; font-size: 1.1rem; line-height: 1.6; }
-.options-list li::before { content: "•"; position: absolute; left: 0; color: var(--text-color); font-size: 0.8rem; top: 0; }
+/* Bullets - Updated to white and flex-aligned for math */
+.options-list { 
+    list-style: none; 
+    padding-left: 5px; 
+    margin-top: 15px; 
+}
+
+.options-list li { 
+    position: relative; 
+    padding-left: 20px; 
+    margin-bottom: 8px; 
+    font-size: 1.1rem; 
+    line-height: 1.6;
+    display: flex;
+    align-items: flex-start; /* Keeps bullet at top of math content */
+    text-align: left;
+}
+
+.options-list li::before { 
+    content: "•"; 
+    position: absolute; 
+    left: 0; 
+    color: var(--text-color); /* White bullets */
+    font-size: 0.8rem; 
+    top: 0; 
+}
 
 /* Details/Summary */
 details { margin-top: 15px; cursor: pointer; }
@@ -197,9 +228,13 @@ details[open] summary::before { transform: rotate(90deg); }
 ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent-color); }
 
-/* Math Alignment */
-.mjx-chtml, .mjx-display, .katex-display {
+/* Math Alignment - Updated to force left alignment in lists */
+.mjx-chtml, 
+.mjx-display, 
+.katex-display, 
+mjx-container[display="true"] {
     text-align: left !important;
     margin: 5px 0 !important;
     display: inline-block !important;
+    width: auto !important;
 }
