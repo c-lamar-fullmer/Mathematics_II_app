@@ -3,7 +3,7 @@
     --card-bg: #1e1e1e;
     --text-color: #e0e0e0;
     --accent-color: #4da6ff;
-    --accent-color2: #f9db45;
+    --accent-color2: #e2bd06;
     --sidebar-width: 280px;
 }
 
@@ -52,6 +52,19 @@ body {
 .sidebar a:hover { 
     color: white; 
     padding-left: 5px; /* Subtle hover effect */
+}
+
+/* Sidebar Active Link Styling */
+.sidebar a.active-link {
+    color: var(--accent-color2);
+    font-weight: bold;
+    border-left: 3px solid var(--accent-color2);
+    padding-left: 10px; /* Offset the text slightly since we added a border */
+}
+
+/* Optional: Keep the hover effect white even if active */
+.sidebar a.active-link:hover {
+    color: white;
 }
 
 /* Main Content Area - Scrollable */

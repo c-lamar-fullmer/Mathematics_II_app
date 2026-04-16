@@ -12,7 +12,9 @@
           inlineMath: [['$', '$'], ['\\(', '\\)']],
           displayMath: [['$$', '$$'], ['\\[', '\\]']],
           processEscapes: true
-        }
+        },
+        displayAlign: 'left',
+        displayIndent: '0'
       };
     </script>
 
@@ -21,23 +23,32 @@
 <body>
 <div class="sidebar">
     <h2>Mathematics II</h2>
-    <a href="/">Show All Questions</a>
+    
+    <a href="/" class="{{ 'active-link' if current_unit == 0 }}">Show All Questions</a>
     <hr>
-    <a href="/unit/1">Unit 1: <br>Introduction to Matrices</a>
+    
+    <a href="/unit/1" class="{{ 'active-link' if current_unit == 1 }}">Unit 1: <br>Introduction to Matrices</a>
     <hr>
-    <a href="/unit/2">Unit 2: <br>Inverting Matrices</a>
+    
+    <a href="/unit/2" class="{{ 'active-link' if current_unit == 2 }}">Unit 2: <br>Inverting Matrices</a>
     <hr>
-    <a href="/unit/3">Unit 3: <br>Systems of Linear Equations</a>
+    
+    <a href="/unit/3" class="{{ 'active-link' if current_unit == 3 }}">Unit 3: <br>Systems of Linear Equations</a>
     <hr>
-    <a href="/unit/4">Unit 4: <br>Introduction to Graphs</a>
+    
+    <a href="/unit/4" class="{{ 'active-link' if current_unit == 4 }}">Unit 4: <br>Introduction to Graphs</a>
     <hr>
-    <a href="/unit/5">Unit 5: <br>Shortest Path Problem</a>
+    
+    <a href="/unit/5" class="{{ 'active-link' if current_unit == 5 }}">Unit 5: <br>Shortest Path Problem</a>
     <hr>
-    <a href="/unit/6">Unit 6: <br>The Königsberg Bridge Problem</a>
+    
+    <a href="/unit/6" class="{{ 'active-link' if current_unit == 6 }}">Unit 6: <br>The Königsberg Bridge Problem</a>
     <hr>
-    <a href="/unit/7">Unit 7: <br>Hamiltonian Paths</a>
+    
+    <a href="/unit/7" class="{{ 'active-link' if current_unit == 7 }}">Unit 7: <br>Hamiltonian Paths</a>
     <hr>
-    <a href="/unit/8">Unit 8: <br>Trees</a>
+    
+    <a href="/unit/8" class="{{ 'active-link' if current_unit == 8 }}">Unit 8: <br>Trees</a>
     <hr>
 </div>
 

@@ -27,6 +27,8 @@ An interactive web application built with **Python** and **Flask** to help organ
    ```bash
    poetry install && poetry run python app.py
 
+   Open http://127.0.0.1:5002 to access the running program.
+
 
 ## Please Ignore this unless you're the main developer
 Access to virtual environment: source ~/.venv/env_b/bin/activate
