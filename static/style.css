@@ -228,13 +228,40 @@ details[open] summary::before { transform: rotate(90deg); }
 ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent-color); }
 
-/* Math Alignment - Updated to force left alignment in lists */
+/* --- COMPLETE MATH ALIGNMENT FIX --- */
+
+/* 1. Fixes Display Math (Large formulas/matrices) */
 .mjx-chtml, 
 .mjx-display, 
 .katex-display, 
 mjx-container[display="true"] {
     text-align: left !important;
-    margin: 5px 0 !important;
+    margin: 10px 0 !important; /* Vertical spacing */
     display: inline-block !important;
     width: auto !important;
+    vertical-align: middle;
+}
+
+/* 2. Fixes Inline Math (Small variables like A and B inside sentences) */
+/* This prevents the "inAmust" squishing issue */
+mjx-container:not([display="true"]),
+.mjx-inline,
+.katex:not(.katex-display) {
+    margin-left: 5px !important;  /* Space before the math symbol */
+    margin-right: 5px !important; /* Space after the math symbol */
+    display: inline-block !important;
+    vertical-align: baseline;
+}
+
+/* 3. Ensure list items handle these blocks correctly */
+.options-list li { 
+    position: relative; 
+    padding-left: 25px; 
+    margin-bottom: 8px; 
+    font-size: 1.1rem; 
+    line-height: 1.6;
+    display: flex;
+    flex-wrap: wrap;       /* Allows math to wrap to a new line if the phone is tiny */
+    align-items: center;   /* Keeps the bullet and text baseline aligned */
+    text-align: left;
 }
