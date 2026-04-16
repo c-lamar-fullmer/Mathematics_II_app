@@ -12,7 +12,7 @@ html, body {
     height: 100%;
     margin: 0;
     background-color: var(--bg-color);
-    overflow: hidden; /* Prevents the whole body from scrolling double */
+    overflow: hidden; 
 }
 
 body {
@@ -21,62 +21,113 @@ body {
     display: flex;
 }
 
-/* Sidebar - Fixed and Scrollable */
+/* --- RESPONSIVE SIDEBAR & TOGGLE --- */
+
 .sidebar {
     width: var(--sidebar-width);
     background-color: #181818;
     height: 100vh;
     position: fixed;
-    border-right: 1px solid #333;
+    left: -280px; /* Hidden on mobile */
+    top: 0;
+    z-index: 1000;
+    transition: 0.3s ease;
     padding: 25px;
     box-sizing: border-box;
-    overflow-y: auto; /* Scrollbar appears here if units overflow */
+    overflow-y: auto;
+    border-right: 1px solid #333;
 }
 
-.sidebar h2 { 
-    color: var(--accent-color); 
-    font-size: 1.2rem; 
-    margin-bottom: 20px;
+.sidebar.open {
+    left: 0;
 }
 
-.sidebar a {
-    display: block;
-    color: #aaa;
-    text-decoration: none;
-    padding: 12px 0;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    transition: 0.3s;
-}
-
-.sidebar a:hover { 
-    color: white; 
-    padding-left: 5px; /* Subtle hover effect */
-}
-
-/* Sidebar Active Link Styling */
-.sidebar a.active-link {
-    color: var(--accent-color2);
+.mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1001;
+    background: var(--accent-color);
+    color: #121212;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
     font-weight: bold;
-    border-left: 3px solid var(--accent-color2);
-    padding-left: 10px; /* Offset the text slightly since we added a border */
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
-/* Optional: Keep the hover effect white even if active */
-.sidebar a.active-link:hover {
-    color: white;
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
 }
 
-/* Main Content Area - Scrollable */
+.hamburger-icon span {
+    display: block;
+    width: 16px;
+    height: 2px;
+    background-color: #121212;
+    border-radius: 2px;
+}
+
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 999;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
 .main-content {
-    margin-left: var(--sidebar-width);
+    margin-left: 0;
     flex-grow: 1;
     height: 100vh;
-    padding: 40px;
+    padding: 20px;
+    padding-top: 80px; /* Space for mobile button */
     box-sizing: border-box;
-    overflow-y: auto; /* Scrollbar appears here for questions */
+    overflow-y: auto;
 }
 
+/* --- DESKTOP OVERRIDES --- */
+@media (min-width: 992px) {
+    .mobile-toggle {
+        display: none;
+    }
+
+    .sidebar {
+        left: 0;
+    }
+
+    .main-content {
+        margin-left: var(--sidebar-width);
+        padding: 40px;
+    }
+
+    .sidebar-overlay {
+        display: none !important;
+    }
+}
+
+/* --- SIDEBAR INTERNAL STYLES --- */
+.sidebar h2 { color: var(--accent-color); font-size: 1.2rem; margin-bottom: 20px; }
+.sidebar a { display: block; color: #aaa; text-decoration: none; padding: 12px 0; font-size: 0.9rem; line-height: 1.4; transition: 0.3s; }
+.sidebar a:hover { color: white; padding-left: 5px; }
+.sidebar a.active-link { color: var(--accent-color2); border-left: 3px solid var(--accent-color2); padding-left: 10px; }
+
+/* --- CONTENT STYLES --- */
 .top-menu {
     border-bottom: 1px solid #333;
     padding-bottom: 20px;
@@ -87,17 +138,21 @@ body {
     letter-spacing: 1px;
 }
 
+@media (max-width: 991px) {
+    .top-menu { padding-right: 80px; font-size: 1rem; }
+}
+
 .section-header {
     border-bottom: 1px solid #333;
     padding-bottom: 20px;
     margin-bottom: 30px;
     font-size: 1rem;
-    color: #f9db45;
+    color: var(--accent-color2);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Question Cards */
+/* --- QUESTION CARDS --- */
 .question-card {
     background-color: var(--card-bg);
     border-radius: 12px;
@@ -105,6 +160,8 @@ body {
     margin-bottom: 25px;
     border: 1px solid #333;
     max-width: 800px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .badge {
@@ -118,87 +175,31 @@ body {
     display: inline-block;
 }
 
-.question-text {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 10px;
-}
+.question-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 10px; text-align: left; }
 
-/* Animated Caret (Arrow) Toggle */
-details {
-    margin-top: 15px;
-    cursor: pointer;
-}
+/* Bullets */
+.options-list { list-style: none; padding-left: 5px; margin-top: 15px; }
+.options-list li { position: relative; padding-left: 20px; margin-bottom: 8px; font-size: 1.1rem; line-height: 1.6; }
+.options-list li::before { content: "•"; position: absolute; left: 0; color: var(--text-color); font-size: 0.8rem; top: 0; }
 
-summary {
-    color: var(--accent-color);
-    font-weight: bold;
-    outline: none;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    font-size: 0.95rem;
-}
+/* Details/Summary */
+details { margin-top: 15px; cursor: pointer; }
+summary { color: var(--accent-color); font-weight: bold; outline: none; list-style: none; display: flex; align-items: center; font-size: 0.95rem; }
+summary::-webkit-details-marker { display: none; }
+summary::before { content: '▶'; display: inline-block; margin-right: 10px; font-size: 0.7rem; transition: transform 0.2s ease; }
+details[open] summary::before { transform: rotate(90deg); }
 
-summary::-webkit-details-marker {
-    display: none;
-}
+.answer-box { margin-top: 15px; padding: 20px; background-color: #252525; border-left: 4px solid var(--accent-color); border-radius: 4px; line-height: 1.6; }
 
-summary::before {
-    content: '▶';
-    display: inline-block;
-    margin-right: 10px;
-    font-size: 0.7rem;
-    transition: transform 0.2s ease;
-}
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #121212; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-color); }
 
-details[open] summary::before {
-    transform: rotate(90deg);
-}
-
-.answer-box {
-    margin-top: 15px;
-    padding: 20px;
-    background-color: #252525;
-    border-left: 4px solid var(--accent-color);
-    border-radius: 4px;
-    line-height: 1.6;
-}
-
-/* Custom Scrollbar for Dark Mode */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #121212;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #333;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-color);
-}
-
-/* Force MathJax display equations to align left */
-.mjx-chtml, .mjx-display {
+/* Math Alignment */
+.mjx-chtml, .mjx-display, .katex-display {
     text-align: left !important;
     margin: 5px 0 !important;
-}
-
-/* If you are using KaTeX instead of MathJax */
-.katex-display {
-    text-align: left !important;
-    display: inline-block !important; /* Prevents the math block from acting like a full-width centered row */
-}
-
-/* Ensure the question text container keeps everything tight to the left */
-.question-text {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    display: inline-block !important;
 }

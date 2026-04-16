@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="section-header">
-        {% if current_unit %}
+        {% if current_unit and current_unit != 0 %}
             Unit {{ current_unit }}
         {% else %}
             All Questions
@@ -14,9 +14,8 @@
         <div class="question-card">
             <span class="badge">{{ question.difficulty }}</span>
             <div class="question-text">
-                <p>{{question.id}}. {{ question.question }}</p>
+                <p>{{ question.id }}. {{ question.question }}</p>
                 
-                {# Check if 'options' exists and has items #}
                 {% if question.options %}
                 <ul class="options-list">
                     {% for option in question.options %}
@@ -29,6 +28,7 @@
             <details>
                 <summary>Show Answer</summary>
                 <div class="answer-box">
+                    <strong>Answer:</strong><br>
                     {{ question.answer }}
                 </div>
             </details>

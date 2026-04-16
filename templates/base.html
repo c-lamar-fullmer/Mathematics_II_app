@@ -17,40 +17,43 @@
         displayIndent: '0'
       };
     </script>
-
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 </head>
 <body>
-<div class="sidebar">
-    <h2>Mathematics II</h2>
+    <button class="mobile-toggle" id="menuBtn">
+        <div class="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        MENU
+    </button>
     
-    <a href="/" class="{{ 'active-link' if current_unit == 0 }}">Show All Questions</a>
-    <hr>
-    
-    <a href="/unit/1" class="{{ 'active-link' if current_unit == 1 }}">Unit 1: <br>Introduction to Matrices</a>
-    <hr>
-    
-    <a href="/unit/2" class="{{ 'active-link' if current_unit == 2 }}">Unit 2: <br>Inverting Matrices</a>
-    <hr>
-    
-    <a href="/unit/3" class="{{ 'active-link' if current_unit == 3 }}">Unit 3: <br>Systems of Linear Equations</a>
-    <hr>
-    
-    <a href="/unit/4" class="{{ 'active-link' if current_unit == 4 }}">Unit 4: <br>Introduction to Graphs</a>
-    <hr>
-    
-    <a href="/unit/5" class="{{ 'active-link' if current_unit == 5 }}">Unit 5: <br>Shortest Path Problem</a>
-    <hr>
-    
-    <a href="/unit/6" class="{{ 'active-link' if current_unit == 6 }}">Unit 6: <br>The Königsberg Bridge Problem</a>
-    <hr>
-    
-    <a href="/unit/7" class="{{ 'active-link' if current_unit == 7 }}">Unit 7: <br>Hamiltonian Paths</a>
-    <hr>
-    
-    <a href="/unit/8" class="{{ 'active-link' if current_unit == 8 }}">Unit 8: <br>Trees</a>
-    <hr>
-</div>
+    <div class="sidebar-overlay" id="overlay"></div>
+
+    <div class="sidebar" id="sidebar">
+        <h2>Mathematics II</h2>
+        
+        <a href="/" class="{{ 'active-link' if current_unit == 0 }}">Show All Questions</a>
+        <hr>
+        
+        <a href="/unit/1" class="{{ 'active-link' if current_unit == 1 }}">Unit 1: <br>Introduction to Matrices</a>
+        <hr>
+        <a href="/unit/2" class="{{ 'active-link' if current_unit == 2 }}">Unit 2: <br>Inverting Matrices</a>
+        <hr>
+        <a href="/unit/3" class="{{ 'active-link' if current_unit == 3 }}">Unit 3: <br>Systems of Linear Equations</a>
+        <hr>
+        <a href="/unit/4" class="{{ 'active-link' if current_unit == 4 }}">Unit 4: <br>Introduction to Graphs</a>
+        <hr>
+        <a href="/unit/5" class="{{ 'active-link' if current_unit == 5 }}">Unit 5: <br>Shortest Path Problem</a>
+        <hr>
+        <a href="/unit/6" class="{{ 'active-link' if current_unit == 6 }}">Unit 6: <br>The Königsberg Bridge Problem</a>
+        <hr>
+        <a href="/unit/7" class="{{ 'active-link' if current_unit == 7 }}">Unit 7: <br>Hamiltonian Paths</a>
+        <hr>
+        <a href="/unit/8" class="{{ 'active-link' if current_unit == 8 }}">Unit 8: <br>Trees</a>
+        <hr>
+    </div>
 
     <div class="main-content">
         <nav class="top-menu">
@@ -59,5 +62,7 @@
         
         {% block content %}{% endblock %}
     </div>
+
+    <script src="{{ url_for('static', filename='base.js') }}"></script>
 </body>
 </html>
