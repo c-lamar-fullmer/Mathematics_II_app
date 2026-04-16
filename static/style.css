@@ -132,15 +132,6 @@ body {
 }
 
 /* --- CONTENT STYLES --- */
-.top-menu {
-    border-bottom: 1px solid #333;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
-    font-size: 1.25rem;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
 
 @media (max-width: 991px) {
     .top-menu { padding-right: 80px; font-size: 1rem; }

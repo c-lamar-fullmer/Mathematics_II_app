@@ -149,7 +149,7 @@ questions_data = [
         "id": 12, 
         "unit": 1,
         "difficulty": "Hard",
-        "question": "Given the vectors $\\vec{a}=\\begin{pmatrix} 6 \\\\ 5 \\\\ -3 \\end{pmatrix}$ and $\\vec{b}=\\begin{pmatrix} 1 \\\\ -11 \\\\ 0.5 \\end{pmatrix}$, what is the result of the scalar product $\\vec{b} \\cdot \\vec{a}$?", 
+        "question": "Given the vectors $\\vec{a}=\\begin{pmatrix} 1 & -11 & 0.5 \\end{pmatrix}$ and $\\vec{b}=\\begin{pmatrix} 6 \\\\ 5 \\\\ -3 \\end{pmatrix}$, what is the result of the scalar product $\\vec{a} \\cdot \\vec{b}$?",
         "answer": "-50.5",
         "options": [
             "-95.5",
