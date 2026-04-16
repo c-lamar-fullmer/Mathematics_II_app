@@ -3,6 +3,7 @@
     --card-bg: #1e1e1e;
     --text-color: #e0e0e0;
     --accent-color: #4da6ff;
+    --accent-color2: #f9db45;
     --sidebar-width: 280px;
 }
 
@@ -167,4 +168,24 @@ details[open] summary::before {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--accent-color);
+}
+
+/* Force MathJax display equations to align left */
+.mjx-chtml, .mjx-display {
+    text-align: left !important;
+    margin: 5px 0 !important;
+}
+
+/* If you are using KaTeX instead of MathJax */
+.katex-display {
+    text-align: left !important;
+    display: inline-block !important; /* Prevents the math block from acting like a full-width centered row */
+}
+
+/* Ensure the question text container keeps everything tight to the left */
+.question-text {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }

@@ -5,7 +5,7 @@
         {% if current_unit %}
             Unit {{ current_unit }}
         {% else %}
-            All Practice Questions
+            All Questions
         {% endif %}
     </div>
 
@@ -14,7 +14,16 @@
         <div class="question-card">
             <span class="badge">{{ question.difficulty }}</span>
             <div class="question-text">
-                {{ question.question }}
+                <p>{{question.id}}. {{ question.question }}</p>
+                
+                {# Check if 'options' exists and has items #}
+                {% if question.options %}
+                <ul class="options-list">
+                    {% for option in question.options %}
+                        <li>{{ option }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
             </div>
             
             <details>
