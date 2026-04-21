@@ -1,9 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="section-header">
+<div class="section-header">
         {% if current_unit and current_unit != 0 %}
-            Unit {{ current_unit }}
+            Unit {{ current_unit }}: 
+            {% if current_unit == 1 %} Introduction to Matrices
+            {% elif current_unit == 2 %} Inverting Matrices
+            {% elif current_unit == 3 %} Systems of Linear Equations
+            {% elif current_unit == 4 %} Introduction to Graphs
+            {% elif current_unit == 5 %} Shortest Path Problem
+            {% elif current_unit == 6 %} The Königsberg Bridge Problem
+            {% elif current_unit == 7 %} Hamiltonian Paths
+            {% elif current_unit == 8 %} Trees
+            {% endif %}
         {% else %}
             All Questions
         {% endif %}
